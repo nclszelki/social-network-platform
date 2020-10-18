@@ -1,0 +1,1 @@
+## Social Network Platform using MongoDB, Express, Node, React, GraphQL.
