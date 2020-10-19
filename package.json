@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/nclszelki/social-network-platform#readme",
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
     "apollo-server": "^2.18.2",
     "bcryptjs": "^2.4.3",
     "graphql": "^15.3.0",
