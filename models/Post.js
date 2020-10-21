@@ -2,6 +2,7 @@ const { model, Schema } = require("mongoose");
 
 const postSchema = new Schema({
   image: String,
+  video: String,
   body: String,
   username: String,
   createdAt: String,
