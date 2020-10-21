@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   Mutation: {
-    async createPost(_, { body }, context) {
+    async createPost(_, { body, image }, context) {
       const user = checkAuth(context);
 
       if (body.trim() === "") {
@@ -35,6 +35,7 @@ module.exports = {
       }
 
       const newPost = new Post({
+        image,
         body,
         user: user.id,
         username: user.username,

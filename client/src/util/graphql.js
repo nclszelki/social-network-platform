@@ -4,6 +4,7 @@ export const FETCH_POSTS_QUERY = gql`
   {
     getPosts {
       id
+      image
       body
       createdAt
       username

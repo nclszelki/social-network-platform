@@ -1,15 +1,24 @@
-import React, { useContext } from 'react';
-import { Button, Card, Icon, Label, Image } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
+import React, { useContext } from "react";
+import { Button, Card, Icon, Label, Image } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import moment from "moment";
 
-import { AuthContext } from '../context/auth';
-import LikeButton from './LikeButton';
-import DeleteButton from './DeleteButton';
-import MyPopup from '../util/MyPopup';
+import { AuthContext } from "../context/auth";
+import LikeButton from "./LikeButton";
+import DeleteButton from "./DeleteButton";
+import MyPopup from "../util/MyPopup";
 
 function PostCard({
-  post: { body, createdAt, id, username, likeCount, commentCount, likes }
+  post: {
+    image,
+    body,
+    createdAt,
+    id,
+    username,
+    likeCount,
+    commentCount,
+    likes,
+  },
 }) {
   const { user } = useContext(AuthContext);
 
@@ -25,6 +34,7 @@ function PostCard({
         <Card.Meta as={Link} to={`/posts/${id}`}>
           {moment(createdAt).fromNow(true)}
         </Card.Meta>
+        {image.length > 0 && <Image src={image} />}
         <Card.Description>{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
