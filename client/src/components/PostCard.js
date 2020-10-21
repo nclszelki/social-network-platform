@@ -34,7 +34,7 @@ function PostCard({
         <Card.Meta as={Link} to={`/posts/${id}`}>
           {moment(createdAt).fromNow(true)}
         </Card.Meta>
-        {image.length > 0 && <Image src={image} />}
+        {image.length > 0 && image.match(/\.(jpeg|jpg|gif|png)$/) != null && <Image src={image} />}
         <Card.Description>{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
