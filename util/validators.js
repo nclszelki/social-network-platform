@@ -42,3 +42,19 @@ module.exports.validateLoginInput = (username, password) => {
     valid: Object.keys(errors).length < 1,
   };
 };
+
+module.exports.validateYoutubeURL = (url) => {
+  const errors = {};
+  if (url != undefined || url != '') {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    if (!(match && match[2].length == 11)) {
+       errors.url = "URL must be a valid youtube URL"
+    }
+  } 
+
+  return {
+    errors,
+    valid: Object.keys(errors).length < 1,
+  };
+}

@@ -2,6 +2,7 @@ const { AuthenticationError, UserInputError } = require("apollo-server");
 
 const Post = require("../../models/Post");
 const checkAuth = require("../../util/check-auth");
+const validateYoutubeURL = require("../../util/validators");
 
 module.exports = {
   Query: {
@@ -30,9 +31,19 @@ module.exports = {
     async createPost(_, { body, image, video }, context) {
       const user = checkAuth(context);
 
-      if (body.trim() === "") {
-        throw new Error("Post body must not be empty");
-      }
+      // if (body.trim() === "") {
+      //   throw new Error("Post body must not be empty");
+      // }
+
+      // if (image.match(/\.(jpeg|jpg|gif|png)$/) == null) {
+      //   throw new Error("URL must be a valid image URL");
+      // }
+      
+      // const { errors, valid } = validateYoutubeURL(video);
+
+      // if (!valid) {
+      //   throw new Error(errors.url);
+      // }
 
       const newPost = new Post({
         image,
